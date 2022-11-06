@@ -43,7 +43,7 @@ inputText.addEventListener("input", function (e) {
 
 addBtn.addEventListener("click", function (e) {
   //add후 초기 설정값으로 돌아감
-  console.log("add버튼 클릭됨");
+  console.log(inputText.value);
   console.log(saveTodo);
 
   /* todo item 동적 태그 생성 되는 부분 */
@@ -72,4 +72,5 @@ addBtn.addEventListener("click", function (e) {
 
   create_item.textContent = saveTodo; //input에 입력한 텍스트 할일목록으로 전달
   addBtn.setAttribute("disabled", "");
+  inputText.value = "";
 });
