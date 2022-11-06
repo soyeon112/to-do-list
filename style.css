@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 16px;
+}
+#wrap {
+  margin: 0 auto;
+  width: 1200px;
+  height: 100%;
+}
+#form {
+  margin: 0 auto;
+  width: 450px;
+  height: 650px;
+  border-radius: 10px;
+  margin-top: 20px;
+  border: 3px solid rgba(214, 212, 213, 0.5);
+  background-color: #f4f2f3;
+}
+/* -- 상단바 헤더 영역 -- */
+header {
+  margin: 0 auto;
+  width: 100%;
+  height: 30px;
+  background-color: #faf7f8;
+  border-bottom: 2px solid rgba(214, 212, 213, 0.5);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+#circleBtnDiv {
+  margin-left: 10px;
+  width: 70px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.header_circle {
+  width: 13px;
+  height: 13px;
+  border-radius: 100%;
+}
+.header_circle:first-child {
+  background-color: #fd6058;
+}
+.header_circle:nth-child(2) {
+  background-color: #fcbc30;
+}
+.header_circle:nth-child(3) {
+  background-color: #dedcdd;
+}
+.header_title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0 auto;
+}
+#closeBtnDiv {
+  width: 70px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  margin-right: 10px;
+}
+.header_circle_close {
+  z-index: 10;
+  width: 13px;
+  height: 13px;
+  /* border-radius: 100%; */
+  /* background-color: rgb(154, 154, 154); */
+}
+
+/* -- 할일 추가하기 영역-- */
+#todo_current_time {
+  margin: 30px 10px;
+  border-bottom: 2px solid rgba(214, 212, 213, 0.2);
+}
+
+.currentDate {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.currentDay {
+  margin-bottom: 30px;
+}
+#todo_add_section {
+  margin: 30px 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.add_title {
+  font-size: 1rem;
+}
+.todo_input_text {
+  padding: 0 10px 0 10px;
+  font-size: 1.1rem;
+  border: 1px solid rgba(224, 226, 231, 0.75);
+  border-radius: 6px;
+  width: 78%;
+  height: 50px;
+}
+
+.todo_add_btn {
+  border: 1px solid rgba(224, 226, 231, 0.75);
+  border-radius: 6px;
+  font-size: 1.3rem;
+  width: 15%;
+  height: 50px;
+  background-color: #86aff8;
+  color: white;
+  cursor: pointer;
+}
+.todo_add_btn:disabled {
+  background-color: #e0e2e7;
+  cursor: not-allowed;
+}
+
+/* -- 할일 목록 영역 -- */
+#todo_list_section {
+  margin: 30px 10px;
+}
+.list_title {
+  font-size: 1.2rem;
+}
+.list_item {
+  margin: 10px 0 10px 0;
+  display: flex;
+  justify-content: space-between;
+  background-color: #faf7f8;
+  padding: 10px;
+  border-radius: 6px;
+}
+.list_checkbox {
+  width: 23px;
+  height: 23px;
+}
+.list_item_title {
+  font-size: 1.1rem;
+  color: #676868;
+}
+.list_item_title.check {
+  font-size: 1.1rem;
+  color: #afb2b2;
+}
+
+.del_btn {
+  width: 25px;
+  height: 25px;
+  color: gray;
+  background-color: #e0e2e7;
+  border: 1px solid rgba(224, 226, 231, 0.75);
+  border-radius: 6px;
+  cursor: not-allowed;
+}
+.del_btn.check {
+  color: white;
+  background-color: #86aff8;
+}

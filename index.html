@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>TODO LIST</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="wrap">
+      <div id="form">
+        <header>
+          <div id="circleBtnDiv">
+            <span class="header_circle"></span>
+            <span class="header_circle"></span>
+            <span class="header_circle"></span>
+          </div>
+          <div id="titleDiv">
+            <span class="header_title">< TO DO LIST ></span>
+          </div>
+          <div id="closeBtnDiv">
+            <span class="header_circle_close"> X </span>
+          </div>
+        </header>
+        <section id="todo_current_time">
+          <p class="currentDate">현재 날짜</p>
+          <p class="currentDay">현재 요일</p>
+        </section>
+        <section id="todo_add_section">
+          <!-- <p class="add_title">📍 할일 추가하기</p> -->
+          <input type="text" class="todo_input_text" />
+          <button type="submit" class="todo_add_btn" disabled>+</button>
+        </section>
+        <section id="todo_list_section">
+          <span class="list_title">📋 할일목록</span>
+          <!-- <div class="list_item"> -->
+          <!-- <input type="checkbox" class="list_checkbox" /> -->
+          <!-- <span class="list_item_title">할일</span> -->
+          <!-- <button class="del_btn">X</button> -->
+          <!-- </div> -->
+        </section>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
