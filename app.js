@@ -3,11 +3,8 @@ const current_day = document.querySelector(".currentDay");
 const inputText = document.querySelector(".todo_input_text");
 const addBtn = document.querySelector(".todo_add_btn");
 let saveTodo; //input에 적힌 text를 저장하는 변수
-const listSection = document.querySelector("#todo_list_section");
-const listItem = document.querySelector(".list_item");
-const checkbox = document.querySelector(".list_checkbox");
-const todoText = document.querySelector(".list_item_title");
-const deleteBtn = document.querySelector(".del_btn");
+const list_Div = document.querySelector(".list_Div");
+var arr_todos = []; //동적 생성 태그 저장되는 배열
 
 /* 현재 날짜 요일 설정 */
 const today_date = new Date();
@@ -47,10 +44,9 @@ addBtn.addEventListener("click", function (e) {
   console.log(saveTodo);
 
   /* todo item 동적 태그 생성 되는 부분 */
-
   //item div
   const create_itemDiv = document.createElement("div");
-  listSection.appendChild(create_itemDiv);
+  list_Div.appendChild(create_itemDiv);
   create_itemDiv.setAttribute("class", "list_item");
 
   //item checkbox
@@ -58,6 +54,7 @@ addBtn.addEventListener("click", function (e) {
   create_itemDiv.appendChild(create_checkBox);
   create_checkBox.setAttribute("type", "checkbox");
   create_checkBox.setAttribute("class", "list_checkbox");
+  create_checkBox.setAttribute("name", "chkBox");
 
   //item text
   const create_item = document.createElement("span");
@@ -68,9 +65,18 @@ addBtn.addEventListener("click", function (e) {
   const create_delBtn = document.createElement("button");
   create_itemDiv.appendChild(create_delBtn);
   create_delBtn.setAttribute("class", "del_btn");
-  create_delBtn.textContent = "X";
+  // create_delBtn.textContent = "X";
 
   create_item.textContent = saveTodo; //input에 입력한 텍스트 할일목록으로 전달
+  arr_todos.push(create_itemDiv);
   addBtn.setAttribute("disabled", "");
   inputText.value = "";
+
+  console.log("아이템저장? : ", arr_todos);
+});
+
+//체크박스 선택시 삭제버튼 활성화
+$(document).on("click", "input[name=chkBox]", function () {
+  console.log("체크박스 체크");
+  console.log($(this).text());
 });
