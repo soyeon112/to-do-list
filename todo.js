@@ -98,6 +98,7 @@ function handleSubmit(e) {
   console.log(current_value);
   paintTodo(current_value);
   inputText.value = "";
+  addBtn.setAttribute("disabled", "");
   //   addBtn.addEventListener("click", paintTodo(current_value));
 }
 
