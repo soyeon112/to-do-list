@@ -161,10 +161,25 @@ header {
 .list_item_title {
   font-size: 1rem;
   color: #676868;
+  width: 70%;
+  height: 100%;
+  line-height: 25px;
+  text-align: left;
+  margin-left: 15px;
 }
 .list_item_title.check {
   font-size: 1rem;
   color: #afb2b2;
+}
+
+.list_item_date {
+  font-size: 0.7rem;
+  color: #b5b5b5;
+  width: 30%;
+  height: 100%;
+  text-align: right;
+  margin-left: 10px;
+  line-height: 25px;
 }
 
 .del_btn {
@@ -178,7 +193,7 @@ header {
 }
 .del_btn:hover {
   color: white;
-  background-color: #86aff8;
+  background-color: #fcbc30;
   cursor: pointer;
 }
 .del_btn.check {

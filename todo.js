@@ -5,7 +5,7 @@ const addBtn = document.querySelector(".todo_add_btn");
 const list_Div = document.querySelector(".list_Div");
 let current_value;
 const TODOS_LS = "todos"; //로컬스토리지
-const todos = [];
+let todos = [];
 
 /* 현재 날짜 요일 설정 */
 const today_date = new Date();
@@ -57,6 +57,14 @@ function deleteTodo(e) {
   const btn = e.target;
   const li = btn.parentNode;
   list_Div.removeChild(li);
+
+  const cleanTodos = todos.filter(function (todo) {
+    console.log(todo.id, li.id);
+    return todo.id !== parseInt(li.id);
+  });
+  console.log(cleanTodos);
+  todos = cleanTodos; //배열 덮어씌우기
+  saveTodo(); //현재 상태 로컬스토리지에 저장. (로컬스토리지에서도 삭제가 되게)
 }
 
 /* todo 선택 */
@@ -103,18 +111,12 @@ function paintTodo(text) {
   create_li.id = newId;
 
   // checkbox
-  const create_checkBox = document.createElement("input");
-  create_li.appendChild(create_checkBox);
-  create_checkBox.setAttribute("type", "checkbox");
-  create_checkBox.setAttribute("class", "list_checkbox");
-  create_checkBox.setAttribute("name", "chkBox");
-  create_checkBox.addEventListener("click", checkTodo);
-
-  // text
-  const create_span = document.createElement("span");
-  create_li.appendChild(create_span);
-  create_span.setAttribute("class", "list_item_title");
-  create_span.innerText = text;
+  // const create_checkBox = document.createElement("input");
+  // create_li.appendChild(create_checkBox);
+  // create_checkBox.setAttribute("type", "checkbox");
+  // create_checkBox.setAttribute("class", "list_checkbox");
+  // create_checkBox.setAttribute("name", "chkBox");
+  // create_checkBox.addEventListener("click", checkTodo);
 
   //delete btn
   const create_delBtn = document.createElement("button");
@@ -122,6 +124,18 @@ function paintTodo(text) {
   create_delBtn.setAttribute("class", "del_btn");
   create_delBtn.textContent = "❌";
   create_delBtn.addEventListener("click", deleteTodo);
+
+  // text
+  const create_span = document.createElement("span");
+  create_li.appendChild(create_span);
+  create_span.setAttribute("class", "list_item_title");
+  create_span.innerText = text;
+
+  // text(date)
+  const create_span_date = document.createElement("span");
+  create_li.appendChild(create_span_date);
+  create_span_date.setAttribute("class", "list_item_date");
+  create_span_date.innerText = current_date.textContent;
 
   const todoObj = {
     text: text,
