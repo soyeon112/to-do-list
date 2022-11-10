@@ -6,6 +6,7 @@ const list_Div = document.querySelector(".list_Div");
 let current_value;
 const TODOS_LS = "todos"; //로컬스토리지
 let todos = [];
+let addDate; // add버튼이 클릭될때 날짜 저장변수
 
 /* 현재 날짜 요일 설정 */
 const today_date = new Date();
@@ -39,8 +40,10 @@ function loadTodos() {
   const loadedTodos = localStorage.getItem(TODOS_LS);
   if (loadedTodos !== null) {
     const parsedTodos = JSON.parse(loadedTodos);
+    console.log("parsedTodos", parsedTodos);
     parsedTodos.forEach(function (todo) {
-      paintTodo(todo.text); //로컬 스토리지에 저장된 string만을 가지고 todo item을 만듬
+      paintTodo(todo.text, todo.addDate);
+      //로컬 스토리지에 저장된 string만을 가지고 todo item을 만듬(세션에 저장되어있는것들을 불러와서 todo 생셩되는)
     });
   }
 }
@@ -96,14 +99,17 @@ function inputTextfunction() {
 function handleSubmit(e) {
   e.preventDefault();
   console.log(current_value);
-  paintTodo(current_value);
+  addDate = year + "년 " + month + "월 " + date + "일";
+  console.log("add 날짜: ", addDate);
+  paintTodo(current_value, addDate);
   inputText.value = "";
   addBtn.setAttribute("disabled", "");
+
   //   addBtn.addEventListener("click", paintTodo(current_value));
 }
 
 /* todo item 추가 (태그 동적 생성)*/
-function paintTodo(text) {
+function paintTodo(text, addDate) {
   // li
   const newId = todos.length + 1;
   const create_li = document.createElement("li");
@@ -136,13 +142,15 @@ function paintTodo(text) {
   const create_span_date = document.createElement("span");
   create_li.appendChild(create_span_date);
   create_span_date.setAttribute("class", "list_item_date");
-  create_span_date.innerText = current_date.textContent;
+  create_span_date.innerText = addDate;
 
   const todoObj = {
     text: text,
     id: newId,
+    addDate: addDate,
   };
   todos.push(todoObj); //배열에 오브젝트(todo item) 추가
+  console.log(todos);
   saveTodo();
 }
 
